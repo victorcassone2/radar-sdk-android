@@ -509,7 +509,7 @@ internal class RadarLocationManager(
 
         val options = RadarSettings.getTrackingOptions(context)
         if (options.beacons && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            Radar.apiClient.searchBeacons(location, 1000, 10, object : RadarApiClient.RadarSearchBeaconsApiCallback {
+            Radar.apiClient.searchBeacons(location, 10000, 10, object : RadarApiClient.RadarSearchBeaconsApiCallback {
                 override fun onComplete(status: RadarStatus, res: JSONObject?, beacons: Array<RadarBeacon>?) {
                     if (status != RadarStatus.SUCCESS || beacons == null) {
                         callTrackApi(null)
